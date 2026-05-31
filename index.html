@@ -52,7 +52,29 @@ p{max-width:700px;font-size:1.2rem;line-height:1.7}
 <button class="btn" onclick="checkLove()">❤️ ПРОВЕРИТЬ УРОВЕНЬ ЛЮБВИ</button>
 <div id="love"></div>
 </section>
+<section class="sec" style="text-align:center">
 
+<h2>💬 МИТЯ.GPT</h2>
+
+<p>Что бы сказал Митя?</p>
+
+<button class="btn" onclick="randomMityaQuote()">
+🎙️ СПРОСИТЬ МИТЮ
+</button>
+
+<div id="mityaQuote"
+style="
+margin-top:30px;
+font-size:28px;
+font-style:italic;
+max-width:800px;
+margin-left:auto;
+margin-right:auto;
+line-height:1.5;
+">
+</div>
+
+</section>
 <section>
 <p style="font-size:1.5rem">
 21 год.<br><br>
@@ -97,7 +119,29 @@ function hearts(){
    h.style.animationDuration=(4+Math.random()*5)+'s';
    document.body.appendChild(h);
    setTimeout(()=>h.remove(),9000);
- }
+ }function randomMityaQuote(){
+
+const quotes = [
+
+"Не, ну реально, без рофла",
+
+"Хуй те в нос",
+
+"Неудачники",
+
+"Легкий резеееервд",
+
+"Не первый раз я сплю в метро на зелёной ветке, найдёт если захочет"
+
+];
+
+const quote =
+quotes[Math.floor(Math.random()*quotes.length)];
+
+document.getElementById("mityaQuote").innerHTML =
+"«" + quote + "»";
+
+}
 }
 </script>
 
