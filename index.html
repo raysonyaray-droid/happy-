@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>21 год легенде ❤️</title>
+<style>
+body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
+section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center}
+h1{font-size:clamp(50px,12vw,120px);margin:0;background:linear-gradient(90deg,#ff4fa3,#ff2957);-webkit-background-clip:text;color:transparent}
+img{max-width:90%;max-height:60vh;border-radius:24px;box-shadow:0 0 40px rgba(255,79,163,.4)}
+p{max-width:700px;font-size:1.2rem;line-height:1.7}
+.btn{padding:18px 30px;border:none;border-radius:999px;background:linear-gradient(90deg,#ff4fa3,#ff2957);color:#fff;font-size:18px;font-weight:bold;cursor:pointer}
+#love,#party{min-height:60px;margin-top:20px;font-size:24px}
+.heart{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}
+@keyframes fall{to{transform:translateY(110vh);opacity:.8}}
+</style>
+</head>
+<body>
+
+<section>
+<h1>МИТЯ</h1>
+<img src="photo1.jpg">
+<p>Самая лучшая поддержка на свете.<br>Человек, который всегда оказывается рядом тогда, когда нужен.</p>
+</section>
+
+<section>
+<h1>АСФАЛЬТИНА</h1>
+<img src="photo2.jpg">
+<p>Амбасадор шоу в 7 утра.<br>Чемпион по сну на асфальте и в метро.</p>
+</section>
+
+<section>
+<h1>ЛУКРЕЦИЯ</h1>
+<img src="photo3.jpg">
+<p>Икона. Звезда. Главная звёздочка Центральной станции.</p>
+</section>
+
+<section>
+<h1>МАЛОЙ</h1>
+<img src="photo4.jpg">
+<p>Мастер переездов между Питером и не Питером.<br>Сертифицированный специалист по блюдам из тыквы.</p>
+</section>
+
+<section>
+<h1>21</h1>
+<button class="btn" onclick="startParty()">🎵 ВКЛЮЧИТЬ ПАТИ</button>
+<div id="party"></div>
+
+<br><br>
+
+<button class="btn" onclick="checkLove()">❤️ ПРОВЕРИТЬ УРОВЕНЬ ЛЮБВИ</button>
+<div id="love"></div>
+</section>
+
+<section>
+<p style="font-size:1.5rem">
+21 год.<br><br>
+Спасибо за все воспоминания.<br>
+Спасибо за поддержку.<br>
+Спасибо за смех.<br><br>
+Если бы можно было выбрать друга ещё раз,<br>
+я бы всё равно выбрала тебя.<br><br>
+С днём рождения, Мить ❤️<br><br>
+С любовью,<br>
+Мама
+</p>
+</section>
+
+<audio id="music" src="katja-sambuka-pati.mp3"></audio>
+
+<script>
+function startParty(){
+ document.getElementById('music').play();
+ document.getElementById('party').innerHTML='💃 ПАТИ АКТИВНА 💃';
+}
+
+function checkLove(){
+ const el=document.getElementById('love');
+ el.innerHTML='10%';
+ setTimeout(()=>el.innerHTML='35%',500);
+ setTimeout(()=>el.innerHTML='72%',1000);
+ setTimeout(()=>el.innerHTML='100%',1500);
+ setTimeout(()=>{
+   el.innerHTML='Ошибка.<br><br>Количество любви к Мите невозможно измерить ❤️';
+   hearts();
+ },2200);
+}
+
+function hearts(){
+ for(let i=0;i<60;i++){
+   const h=document.createElement('div');
+   h.className='heart';
+   h.innerHTML=['❤️','💖','💕','💗','💘'][Math.floor(Math.random()*5)];
+   h.style.left=Math.random()*100+'vw';
+   h.style.fontSize=(20+Math.random()*30)+'px';
+   h.style.animationDuration=(4+Math.random()*5)+'s';
+   document.body.appendChild(h);
+   setTimeout(()=>h.remove(),9000);
+ }
+}
+</script>
+
+</body>
+</html>
