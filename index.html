@@ -5,6 +5,38 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>21 год легенде ❤️</title>
 <style>
+ .partyMode{
+animation:partyBg 4s infinite;
+}
+
+@keyframes partyBg{
+0%{background:#000;}
+33%{background:#2a0012;}
+66%{background:#52001f;}
+100%{background:#000;}
+}
+
+.partyBanner{
+position:fixed;
+top:20px;
+left:50%;
+transform:translateX(-50%);
+background:#ff0066;
+color:white;
+padding:15px 25px;
+border-radius:20px;
+font-weight:bold;
+font-size:20px;
+z-index:9999;
+box-shadow:0 0 30px #ff0066;
+animation:pulse 1s infinite;
+}
+
+@keyframes pulse{
+50%{
+transform:translateX(-50%) scale(1.08);
+}
+}
 body{margin:0;background:#050505;color:#fff;font-family:Arial,sans-serif}
 section{min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:30px;text-align:center}
 h1{font-size:clamp(50px,12vw,120px);margin:0;background:linear-gradient(90deg,#ff4fa3,#ff2957);-webkit-background-clip:text;color:transparent}
@@ -91,6 +123,20 @@ line-height:1.5;
 
 <audio id="music" src="katja-sambuka-pati.mp3"></audio>
 
+ document.body.classList.add('partyMode');
+
+if(!document.querySelector('.partyBanner')){
+
+const banner=document.createElement('div');
+
+banner.className='partyBanner';
+
+banner.innerHTML=
+'🚨 ЦЕНТРАЛЬНАЯ СТАНЦИЯ MODE: ON 🚨';
+
+document.body.appendChild(banner);
+
+}
 <script>
 function startParty(){
  document.getElementById('music').play();
