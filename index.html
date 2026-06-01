@@ -221,7 +221,7 @@ quotes[Math.floor(Math.random()*quotes.length)];
 document.getElementById("mityaQuote").innerHTML =
 "«" + quote + "»";
 
- const names = [
+ const finalNames = [
 "Митя",
 "Асфальтина",
 "Лукреция",
@@ -231,24 +231,42 @@ document.getElementById("mityaQuote").innerHTML =
 "Дима"
 ];
 
-let currentName = 0;
+const finalTitle = document.getElementById("finalName");
 
-setInterval(() => {
+if(finalTitle){
 
-const el = document.getElementById("finalName");
+const observer = new IntersectionObserver((entries)=>{
 
-if(!el) return;
+if(entries[0].isIntersecting){
 
-currentName++;
+let current = 0;
 
-if(currentName >= names.length){
-currentName = 0;
+const interval = setInterval(()=>{
+
+current++;
+
+if(current >= finalNames.length){
+
+clearInterval(interval);
+
+return;
+
 }
 
-el.innerHTML = names[currentName];
+finalTitle.textContent =
+finalNames[current];
 
-}, 2000);
+},1200);
 
+observer.disconnect();
+
+}
+
+},{threshold:0.7});
+
+observer.observe(finalTitle);
+
+}
 }
 </script>
 
