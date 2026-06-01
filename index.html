@@ -108,6 +108,7 @@ line-height:1.5;
 
 </section>
 <section>
+ <h1 id="finalName">Митя</h1>
 <p style="font-size:1.5rem">
 21 год.<br><br>
 Спасибо за все воспоминания.<br>
@@ -219,6 +220,34 @@ quotes[Math.floor(Math.random()*quotes.length)];
 
 document.getElementById("mityaQuote").innerHTML =
 "«" + quote + "»";
+
+ const names = [
+"Митя",
+"Асфальтина",
+"Лукреция",
+"Малой",
+"Димка",
+"Дмитрий",
+"Дима"
+];
+
+let currentName = 0;
+
+setInterval(() => {
+
+const el = document.getElementById("finalName");
+
+if(!el) return;
+
+currentName++;
+
+if(currentName >= names.length){
+currentName = 0;
+}
+
+el.innerHTML = names[currentName];
+
+}, 2000);
 
 }
 </script>
