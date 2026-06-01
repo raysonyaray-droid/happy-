@@ -5,6 +5,21 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>21 год легенде ❤️</title>
 <style>
+ #secretBtn{
+position:fixed;
+bottom:15px;
+right:15px;
+opacity:0.2;
+cursor:pointer;
+font-size:24px;
+transition:0.3s;
+z-index:9999;
+}
+
+#secretBtn:hover{
+opacity:1;
+transform:scale(1.2);
+}
  .partyMode{
 animation:partyBg 4s infinite;
 }
@@ -271,7 +286,49 @@ observer.observe(finalTitle);
 
 
 }
-</script>
+ function secretMitya(){
 
+const messages = [
+
+"🏆 Достижение разблокировано<br><br>Настоящий друг найден.",
+
+"🚇 Митя обнаружен.<br><br>Предположительное местоположение: метро.",
+
+"⭐ Редкость персонажа: легендарная.",
+
+"🎃 Тыквенный уровень превышен.",
+
+"❤️ Спасибо, что ты есть."
+
+];
+
+const msg =
+messages[Math.floor(Math.random()*messages.length)];
+
+const popup = document.createElement("div");
+
+popup.style.position = "fixed";
+popup.style.top = "50%";
+popup.style.left = "50%";
+popup.style.transform = "translate(-50%,-50%)";
+popup.style.background = "#111";
+popup.style.border = "2px solid #ff4fa3";
+popup.style.padding = "30px";
+popup.style.borderRadius = "20px";
+popup.style.textAlign = "center";
+popup.style.zIndex = "10000";
+popup.style.maxWidth = "300px";
+
+popup.innerHTML = msg;
+
+document.body.appendChild(popup);
+
+setTimeout(()=>{
+popup.remove();
+},3000);
+
+}
+</script>
+<div id="secretBtn" onclick="secretMitya()">❤️</div>
 </body>
 </html>
