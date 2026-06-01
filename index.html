@@ -123,24 +123,32 @@ line-height:1.5;
 
 <audio id="music" src="katja-sambuka-pati.mp3"></audio>
 
- document.body.classList.add('partyMode');
-
-if(!document.querySelector('.partyBanner')){
-
-const banner=document.createElement('div');
-
-banner.className='partyBanner';
-
-banner.innerHTML=
-'🚨 ЦЕНТРАЛЬНАЯ СТАНЦИЯ MODE: ON 🚨';
-
-document.body.appendChild(banner);
+ 
 
 }
 <script>
 function startParty(){
- document.getElementById('music').play();
- document.getElementById('party').innerHTML='💃 ПАТИ АКТИВНА 💃';
+
+    document.getElementById('music').play();
+
+    document.getElementById('party').innerHTML =
+    '🚨 ЦЕНТРАЛЬНАЯ СТАНЦИЯ MODE: ON 🚨';
+
+    document.body.classList.add('partyMode');
+
+    if(!document.querySelector('.partyBanner')){
+
+        const banner=document.createElement('div');
+
+        banner.className='partyBanner';
+
+        banner.innerHTML=
+        '🚨 ЦЕНТРАЛЬНАЯ СТАНЦИЯ MODE: ON 🚨';
+
+        document.body.appendChild(banner);
+
+    }
+
 }
 
 function checkLove(){
