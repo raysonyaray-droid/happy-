@@ -108,7 +108,7 @@ line-height:1.5;
 
 </section>
 <section>
- <h1 id="finalName">Митя</h1>
+ <h1 id="finalName">Дима</h1>
 <p style="font-size:1.5rem">
 21 год.<br><br>
 Спасибо за все воспоминания.<br>
@@ -222,13 +222,13 @@ document.getElementById("mityaQuote").innerHTML =
 "«" + quote + "»";
 
  const finalNames = [
-"Митя",
-"Асфальтина",
-"Лукреция",
-"Малой",
-"Димка",
+"Дима",
 "Дмитрий",
-"Дима"
+"Димка",
+"Малой",
+"Лукреция",
+"Асфальтина",
+"Митя"
 ];
 
 const finalTitle = document.getElementById("finalName");
@@ -248,6 +248,9 @@ current++;
 if(current >= finalNames.length){
 
 clearInterval(interval);
+
+/* возвращаемся к Мите */
+finalTitle.textContent = "Митя";
 
 return;
 
