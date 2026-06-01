@@ -127,16 +127,17 @@ line-height:1.5;
 
 }
 <script>
-function startParty()
+function startParty(){
 
     const music = document.getElementById('music');
-    const btn = document.getElementById('partyBtn');
+    const party = document.getElementById('party');
 
-    if(music.paused)
+    if(music.paused){
 
         music.play();
 
-        btn.innerHTML='🛑 ВЫКЛЮЧИТЬ ПАТИ';
+        party.innerHTML =
+        '🚨 ЦЕНТРАЛЬНАЯ СТАНЦИЯ MODE: ON 🚨';
 
         document.body.classList.add('partyMode');
 
@@ -156,14 +157,15 @@ function startParty()
     }else{
 
         music.pause();
+        music.currentTime = 0;
 
-        music.currentTime=0;
-
-        btn.innerHTML='🎵 ВКЛЮЧИТЬ ПАТИ';
+        party.innerHTML =
+        '🎵 ВКЛЮЧИТЬ ПАТИ';
 
         document.body.classList.remove('partyMode');
 
-        const banner=document.querySelector('.partyBanner');
+        const banner =
+        document.querySelector('.partyBanner');
 
         if(banner){
             banner.remove();
@@ -172,10 +174,6 @@ function startParty()
     }
 
 }
-    }
-
-}
-
 function checkLove(){
  const el=document.getElementById('love');
  el.innerHTML='10%';
