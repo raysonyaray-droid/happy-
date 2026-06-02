@@ -46,7 +46,22 @@ z-index:9999;
 box-shadow:0 0 30px #ff0066;
 animation:pulse 1s infinite;
 }
+@keyframes angryBlink{
 
+0%,100%{
+opacity:1;
+}
+
+50%{
+opacity:0;
+}
+
+}
+
+.angry{
+animation:angryBlink .15s infinite;
+color:#ff4fa3;
+}
 @keyframes pulse{
 50%{
 transform:translateX(-50%) scale(1.08);
@@ -381,43 +396,54 @@ quotes[Math.floor(Math.random()*quotes.length)];
 document.getElementById("mityaQuote").innerHTML =
 "«" + quote + "»";
 }
- const finalNames = [
+ const finalTitle =
+document.getElementById("finalName");
+
+if(finalTitle){
+
+const observer =
+new IntersectionObserver((entries)=>{
+
+if(entries[0].isIntersecting){
+
+const names = [
+
 "Дима",
 "Дмитрий",
 "Димка",
 "Малой",
 "Лукреция",
-"Асфальтина",
-"Митя"
+"Асфальтина"
+
 ];
-
-const finalTitle = document.getElementById("finalName");
-
-if(finalTitle){
-
-const observer = new IntersectionObserver((entries)=>{
-
-if(entries[0].isIntersecting){
 
 let current = 0;
 
 const interval = setInterval(()=>{
 
-current++;
-
-if(current >= finalNames.length){
+if(current >= names.length){
 
 clearInterval(interval);
 
-/* возвращаемся к Мите */
-finalTitle.textContent = "Митя";
+finalTitle.textContent = "ДИМА";
+finalTitle.classList.add("angry");
+
+setTimeout(()=>{
+finalTitle.textContent = "НЕТ";
+},1000);
+
+setTimeout(()=>{
+finalTitle.classList.remove("angry");
+finalTitle.textContent = "МИТЯ";
+},2000);
 
 return;
-
 }
 
 finalTitle.textContent =
-finalNames[current];
+names[current];
+
+current++;
 
 },1200);
 
@@ -426,6 +452,10 @@ observer.disconnect();
 }
 
 },{threshold:0.7});
+
+observer.observe(finalTitle);
+
+}
 
 observer.observe(finalTitle);
 
