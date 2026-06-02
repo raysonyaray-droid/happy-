@@ -61,6 +61,57 @@ p{max-width:700px;font-size:1.2rem;line-height:1.7}
 #love,#party{min-height:60px;margin-top:20px;font-size:24px}
 .heart{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh);opacity:.8}}
+
+.slider{
+
+width:100%;
+
+overflow:hidden;
+
+margin-top:40px;
+
+}
+
+.slide-track{
+
+display:flex;
+
+width:max-content;
+
+animation:scrollPhotos 60s linear infinite;
+
+}
+
+.slide-track img,
+.slide-track video{
+
+width:300px;
+
+height:300px;
+
+object-fit:cover;
+
+border-radius:20px;
+
+margin-right:20px;
+
+flex-shrink:0;
+
+box-shadow:0 0 20px rgba(255,255,255,.15);
+
+}
+
+@keyframes scrollPhotos{
+
+0%{
+transform:translateX(0);
+}
+
+100%{
+transform:translateX(-50%);
+}
+
+}
 </style>
 </head>
 <body>
@@ -100,6 +151,64 @@ p{max-width:700px;font-size:1.2rem;line-height:1.7}
 <div id="love"></div>
 </section>
 <section class="sec" style="text-align:center">
+
+<section>
+
+<h2>📸 МОМЕНТЫ, КОТОРЫЕ СТОИЛО СОХРАНИТЬ</h2>
+
+<p>
+Потому что хорошие моменты заслуживают остаться.
+</p>
+
+<div class="slider">
+
+<div class="slide-track">
+
+<img src="photo5.JPG">
+<img src="photo6.JPG">
+
+<video muted autoplay loop playsinline>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+<img src="photo7.JPG">
+<img src="photo8.JPG">
+<img src="photo9.JPG">
+
+<video muted autoplay loop playsinline>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+<img src="photo10.JPG">
+<img src="photo11.JPG">
+<img src="photo12.JPG">
+
+<!-- дубль -->
+
+<img src="photo5.JPG">
+<img src="photo6.JPG">
+
+<video muted autoplay loop playsinline>
+<source src="video1.mp4" type="video/mp4">
+</video>
+
+<img src="photo7.JPG">
+<img src="photo8.JPG">
+<img src="photo9.JPG">
+
+<video muted autoplay loop playsinline>
+<source src="video2.mp4" type="video/mp4">
+</video>
+
+<img src="photo10.JPG">
+<img src="photo11.JPG">
+<img src="photo12.JPG">
+
+</div>
+
+</div>
+
+</section>
 
 <h2>💬 МИТЯ.GPT</h2>
 
