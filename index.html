@@ -5,6 +5,49 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>21 год легенде ❤️</title>
 <style>
+
+#lockScreen{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.92);
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+z-index:10000;
+text-align:center;
+color:white;
+gap:15px;
+}
+
+#lockScreen h1{
+font-size:40px;
+background:linear-gradient(90deg,#ff4fa3,#ff2957);
+-webkit-background-clip:text;
+color:transparent;
+}
+
+#lockScreen input{
+padding:12px;
+border-radius:10px;
+border:none;
+text-align:center;
+font-size:16px;
+}
+
+#lockScreen button{
+padding:12px 20px;
+border:none;
+border-radius:10px;
+background:linear-gradient(90deg,#ff4fa3,#ff2957);
+color:white;
+cursor:pointer;
+}
+
+#lockMsg{
+color:#ff4fa3;
+}
+
  #secretBtn{
 position:fixed;
 bottom:15px;
@@ -162,6 +205,18 @@ transform:translateX(-50%);
 </style>
 </head>
 <body>
+    
+<div id="lockScreen">
+  <h1>🔐 ЛИЧНЫЙ ДОСТУП К МИТЕ</h1>
+
+  <p>подсказка: мамааа, мамааа, ааааа…</p>
+
+  <input id="passwordInput" type="password" placeholder="введи пароль">
+
+  <button onclick="checkPassword()">ОТКРЫТЬ</button>
+
+  <p id="lockMsg"></p>
+</div>
 
 <section>
 <h1>МИТЯ</h1>
@@ -303,6 +358,18 @@ line-height:1.5;
 
 
 <script>
+function checkPassword(){
+  const input = document.getElementById("passwordInput").value;
+  const msg = document.getElementById("lockMsg");
+
+  if(input === "мрааазь"){
+    document.getElementById("lockScreen").style.display = "none";
+  } else {
+    msg.innerHTML = "не-а 😈";
+  }
+}
+</script>
+
 function startParty(){
 
     const music = document.getElementById('music');
