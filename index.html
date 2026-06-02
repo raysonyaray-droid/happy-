@@ -359,11 +359,18 @@ line-height:1.5;
 
 <script>
 function checkPassword(){
-  const input = document.getElementById("passwordInput").value;
-  const msg = document.getElementById("lockMsg");
+  const input =
+    document.getElementById("passwordInput")
+    .value
+    .trim()
+    .toLowerCase();
 
-  if(input === "мрааазь"){
-    document.getElementById("lockScreen").style.display = "none";
+  const msg =
+    document.getElementById("lockMsg");
+
+  if(/^мра+зь$/.test(input)){
+    document.getElementById("lockScreen")
+      .style.display = "none";
   } else {
     msg.innerHTML = "не-а 😈";
   }
