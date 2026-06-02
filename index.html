@@ -62,24 +62,35 @@ p{max-width:700px;font-size:1.2rem;line-height:1.7}
 .heart{position:fixed;top:-20px;pointer-events:none;animation:fall linear forwards}
 @keyframes fall{to{transform:translateY(110vh);opacity:.8}}
 
+
 .slider{
-
 width:100%;
-
 overflow:hidden;
-
 margin-top:40px;
-
 }
 
 .slide-track{
-
 display:flex;
-
 width:max-content;
-
 animation:scrollPhotos 60s linear infinite;
+}
 
+.slide-track img,
+.slide-track video{
+width:300px;
+height:300px;
+object-fit:cover;
+border-radius:20px;
+margin-right:20px;
+flex-shrink:0;
+}
+
+@keyframes scrollPhotos{
+0%{
+transform:translateX(0);
+}
+100%{
+transform:translateX(-50%);
 }
 
 .slide-track img,
